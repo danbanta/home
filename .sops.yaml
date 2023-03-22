@@ -9,3 +9,7 @@ creation_rules:
     key_groups:
       - age:
           - age1avwy9taq3crjetrljcd974j7q0wn6mxvcjl7ca7zlm79kv5h0ccqjj457v
+  - path_regex: .*\.xml
+    key_groups:
+      - age:
+          - age1avwy9taq3crjetrljcd974j7q0wn6mxvcjl7ca7zlm79kv5h0ccqjj457v
