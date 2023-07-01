@@ -7,7 +7,7 @@ collections:
   - name: kubernetes.core
     version: 2.4.0
   - name: community.routeros
-    version: 2.8.2
+    version: 2.8.3
   - name: community.sops
     version: 1.6.2
 roles:
