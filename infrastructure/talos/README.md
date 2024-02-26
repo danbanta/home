@@ -113,7 +113,18 @@ After `rk1-4` comes online, I copied the generated `controlplane.yaml` file to `
 
 ## Flux 2 Install <a name="flux2-install"></a>
 
-WIP
+```shell
+flux bootstrap github \
+    --private=false \
+    --token-auth=false \
+    --ssh-key-algorithm ed25519 \
+    --read-write-key=true \
+    --owner=$GITHUB_USER \
+    --repository=home-ops \
+    --branch=main \
+    --path=./clusters/trk \
+    --personal
+```
 
 ## Flux 2 Configuration <a name="flux2-config"></a>
 
