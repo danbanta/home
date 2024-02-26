@@ -7,11 +7,15 @@
 3. [Cilium Template](#cilium-template)
 4. [Talos Setup](#talos-setup)
 5. [Rinse and Repeat](#rinse-and-repeat)
-6. [References](#references)
+6. [Flux 2 Install](#flux2-install)
+7. [Flux 2 Configuration](#flux2-config)
+8. [References](#references)
+
+## TLDR;
 
 I chose Cilium for a CNI because of its eBPF technology. With this cluster's deployment of Cilium, I chose to replace `kube-proxy` and enable `L2 Advertisement` feature.
 
-Please see `nberlee's Talos fork` for a wonderful ASCII Cinema on deploying Talos on RK1 Turing Pi.
+Please see [nberlee's Talos fork](https://github.com/nberlee/talos) for a wonderful ASCII Cinema on deploying Talos on RK1 Turing Pi if you just want to get up and running with a Turing Pi 2 and RK1 modules.
 
 ## Get Talos <a name="get-talos"></a>
 
@@ -106,6 +110,14 @@ After `rk1-4` comes online, I copied the generated `controlplane.yaml` file to `
 | rk1-3 (node 3) | 172.16.116.33 | rk1-3.yaml |
 | rk1-4 (node 4) | 172.16.116.34 | rk1-4.yaml |
 | .. vip .. | 172.16.116.35 | n/a |
+
+## Flux 2 Install <a name="flux2-install"></a>
+
+WIP
+
+## Flux 2 Configuration <a name="flux2-config"></a>
+
+WIP
 
 ## References <a name="references"></a>
 
