@@ -8,8 +8,6 @@ tasks:
     cmds:
       - curl -Lo ~/.local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
       - chmod +x ~/.local/bin/kubectl
-      - curl -Lo ~/.local/bin/clusterctl "https://github.com/kubernetes-sigs/cluster-api/releases/download/v1.3.5/clusterctl-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64"
-      - chmod +x ~/.local/bin/clusterctl
       - curl -Lo ~/.local/bin/talosctl "https://github.com/talos-systems/talos/releases/latest/download/talosctl-$(uname -s | tr '[:upper:]' '[:lower:]')-amd64"
       - chmod +x ~/.local/bin/talosctl
     preconditions:
