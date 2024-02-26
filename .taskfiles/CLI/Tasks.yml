@@ -2,10 +2,9 @@
 version: "3"
 
 tasks:
-
   deps:
-    desc: Install CLI needed for Sidero Metal
-    dir: '{{.CLI_DIR}}'
+    desc: Install CLI needed for Talos and Kubernetes
+    dir: "{{.CLI_DIR}}"
     cmds:
       - curl -Lo ~/.local/bin/kubectl "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
       - chmod +x ~/.local/bin/kubectl
