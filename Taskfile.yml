@@ -1,16 +1,14 @@
 ---
-version: '3'
+version: "3"
 
 vars:
-  ANSIBLE_DIR: '{{.ROOT_DIR}}/infrastructure/ansible'
-  CLUSTER_DIR: '{{.ROOT_DIR}}/kubernetes'
-  CLI_DIR: '${HOME}/.local/bin'
-  PROJECT_DIR: '{{.ROOT_DIR}}'
-  POSTGRES_IP: '10.8.20.216'
-
+  ANSIBLE_DIR: "{{.ROOT_DIR}}/infrastructure/ansible"
+  CLUSTER_DIR: "{{.ROOT_DIR}}/kubernetes"
+  CLI_DIR: "${HOME}/.local/bin"
+  PROJECT_DIR: "{{.ROOT_DIR}}"
 
 env:
-  KUBECONFIG: '{{.ANSIBLE_DIR}}/kubernetes/kubeconfig'
+  KUBECONFIG: "{{.ROOT_DIR}}/kubeconfig"
 
 includes:
   an: .taskfiles/Ansible/Tasks.yml
@@ -19,4 +17,4 @@ includes:
 tasks:
   default:
     silent: true
-    cmds: ['task -l']
+    cmds: ["task -l"]
