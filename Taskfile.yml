@@ -8,6 +8,7 @@ vars:
   PROJECT_DIR: "{{.ROOT_DIR}}"
 
 env:
+  SOPS_AGE_KEY_FILE: "{{.AGE_FILE}}"
   KUBECONFIG: "{{.ROOT_DIR}}/kubeconfig"
 
 includes:
