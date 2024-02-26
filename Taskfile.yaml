@@ -12,8 +12,8 @@ env:
   KUBECONFIG: "{{.ROOT_DIR}}/kubeconfig"
 
 includes:
-  ansible: .taskfiles/Ansible/Tasks.yml
-  cli: .taskfiles/CLI/Tasks.yml
+  ansible: .taskfiles/Ansible/Taskfile.yaml
+  cli: .taskfiles/CLI/Taskfile.yaml
   sops: .taskfiles/Sops/Taskfile.yaml
 
 tasks:
