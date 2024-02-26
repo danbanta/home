@@ -1,0 +1,11 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+tasks:
+  deps:
+    desc: Install tpi command line tool for Turing Pi 2
+    dir: "{{.PROJECT_DIR}}"
+    cmds:
+      - cargo install tpi
+    preconditions:
+      - { msg: "Missing cargo", sh: "which cargo" }

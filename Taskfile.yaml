@@ -15,6 +15,7 @@ includes:
   ansible: .taskfiles/Ansible/Taskfile.yaml
   cli: .taskfiles/CLI/Taskfile.yaml
   sops: .taskfiles/Sops/Taskfile.yaml
+  tpi: .taskfiles/Tpi/Taskfile.yaml
 
 tasks:
   default:
