@@ -1,5 +1,7 @@
 # Talos
 
+## Table of Contents
+
 1. [Get Talos](#get-talos)
 2. [Flash Turing Pi 2](#flash-turing-pi-2)
 3. [Cilium Template](#cilium-template)
