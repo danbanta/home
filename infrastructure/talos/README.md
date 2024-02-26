@@ -1,17 +1,24 @@
 # Talos
 
+1. [Get Talos](#get-talos)
+2. [Flash Turing Pi 2](#flash-turing-pi-2)
+3. [Cilium Template](#cilium-template)
+4. [Talos Setup](#talos-setup)
+5. [Rinse and Repeat](#rinse-and-repeat)
+6. [References](#references)
+
 I chose Cilium for a CNI because of its eBPF technology. With this cluster's deployment of Cilium, I chose to replace `kube-proxy` and enable `L2 Advertisement` feature.
 
 Please see `nberlee's Talos fork` for a wonderful ASCII Cinema on deploying Talos on RK1 Turing Pi.
 
-## Get Talos
+## Get Talos <a name="get-talos"></a>
 
 ```shell
 wget https://github.com/nberlee/talos/releases/download/v1.6.4/metal-turing_rk1-arm64.raw.xz
 xz -d metal-turing_rk1-arm64.raw.xz
 ```
 
-## Flash Turing Pi
+## Flash Turing Pi 2 <a name="flash-turing-pi-2"></a>
 
 My Turning Pi BMC is configured with a static IP and a DNS entry in my router. I started with my 4th node.
 
@@ -21,13 +28,13 @@ sleep 1
 tpi power on -n 4; sleep 1; tpi uart get -n 4; sleep 2; tpi uart get -n 4
 ```
 
-## Template Cilium
+## Cilium Template <a name="cilium-template"></a>
 
 This is what I used to template **Cilium**. It is from [Example With Cilium](https://github.com/nberlee/talos/issues/1) and [Deploying Cilium CNI](https://www.talos.dev/v1.6/kubernetes-guides/network/deploying-cilium/). This will be placed at the end of `patch.yaml` Please see [Deploying Cilium CNI](https://www.talos.dev/v1.6/kubernetes-guides/network/deploying-cilium/) for those instructions.
 
 > Note: It is recommended to template the cilium manifest using helm and use it as part of Talos machine config.
 >
-> - [Deploying Cilium CNI](https://www.talos.dev/v1.6/kubernetes-guides/network/deploying-cilium/)
+> — [Deploying Cilium CNI](https://www.talos.dev/v1.6/kubernetes-guides/network/deploying-cilium/)
 
 So I went with that version. :)
 
@@ -52,7 +59,7 @@ helm template \
     > cilium.yaml
 ```
 
-## Setup Talos
+## Talos Setup <a name="talos-setup"></a>
 
 Please look at `patch.yaml`. This includes modifications from **nberlee's Talos fork**, **How can I get Virtual / Shared IP running (on TuringPI2 / RK1)?**, and [Deploying Cilium CNI](https://www.talos.dev/v1.6/kubernetes-guides/network/deploying-cilium/). It turned out I had a very similar error after my cluster came online. I used patch to migrate the **controlPlane: endpoint:** to the VIP and add various aliases for certificate generation to prevent this issue.
 
@@ -86,7 +93,7 @@ export TERM=xterm-256color
 talsoctl dashboard -n 172.16.116.34
 ```
 
-## Rinse and Repeat
+## Rinse and Repeat <a name="rinse-and-repeat"></a>
 
 After `rk1-4` comes online, I copied the generated `controlplane.yaml` file to `rk1-4.yaml`, `rk1-3.yaml` and `rk1-2.yaml`. Also I copied `worker.yaml` to `rk1-1.yaml`. Then I made the appropriate IP and hostname changes to them. This was to preserve them just in case I had to regenerate the configuration again.
 | Description | IP | File |
@@ -98,7 +105,7 @@ After `rk1-4` comes online, I copied the generated `controlplane.yaml` file to `
 | rk1-4 (node 4) | 172.16.116.34 | rk1-4.yaml |
 | .. vip .. | 172.16.116.35 | n/a |
 
-## References
+## References <a name="references"></a>
 
 - [nberlee's Talos fork](https://github.com/nberlee/talos)
 - [Deploying Cilium CNI](https://www.talos.dev/v1.6/kubernetes-guides/network/deploying-cilium/)
