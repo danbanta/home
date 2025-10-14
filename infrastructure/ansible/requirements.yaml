@@ -3,7 +3,7 @@ collections:
   - name: ansible.posix
     version: 2.1.0
   - name: community.general
-    version: 9.5.12
+    version: 11.4.0
   - name: kubernetes.core
     version: 6.2.0
   - name: community.routeros
