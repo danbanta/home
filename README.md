@@ -1,4 +1,4 @@
-# Home Ops
+# Home
 
 This will replace the deleted `k3s-ops` repository in the comming months. I have slowly migrated everything over to `nix` and `ansible`.
 
