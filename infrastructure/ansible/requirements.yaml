@@ -9,7 +9,7 @@ collections:
   - name: community.routeros
     version: 3.12.1
   - name: community.sops
-    version: 1.9.1
+    version: 2.2.4
 roles:
   - src: geerlingguy.pip
     version: 3.0.3
